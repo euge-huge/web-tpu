@@ -1,0 +1,74 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+.button-back {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    font-size: 1.4rem;
+    padding: 7px 20px;
+    text-transform: uppercase;
+}
+
+.card {
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 1rem;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.header {
+    text-align: center;
+}
+
+.description {
+    font-size: 1.8rem;
+}
+
+.input-group {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.num-input {
+    font-size: 1.8rem;
+}
+
+.button {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.8rem;
+    padding: 7px 20px;
+    text-transform: uppercase;
+}
+
+.result-group {
+    width: 70%;
+    margin: 10px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.result {
+    padding: 5px;
+    border-radius: 2px;
+    color: #eee;
+    background-color: #343a40;
+    transition: background-color .4s ease-in;
+
+}
+
+
+
