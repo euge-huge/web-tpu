@@ -1,35 +1,58 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const int1 = document.getElementById('int1');
-    const int2 = document.getElementById('int2');
+    const input = document.getElementById('input');
+    const int = document.getElementById('int');
 
     const button = document.getElementById('btn');
 
     const result = document.getElementById('result');
 
-    // ПОДПРОГРАММА
-    const isPolindrom = (number) => {
-        return number === Number(number.toString().split('').reverse().join(''));
+    // ПОДПРОГРАММА (нечетный)
+    const isOdd = (number) => {
+        if (number % 2 !== 0)
+            return true;
+        else
+            return false;
     }
     // 
 
     // АЛГОРИТМ 
-    const countPolindroms = (v1, v2) => {
-        let count = 0;
+    const refactorArray = (string, count) => {
+        let array = string.split(',');
 
-        for (let num = Number(v1); num <= v2; num++) {
-            if (isPolindrom(num)) count++;
+        array = array.map(item => Number(item));
+
+        for (let i = 1; i <= count; i++) {
+            if (isOdd(i)) {
+                array = array.map(item => {
+                    if (!isOdd(item)) {
+                        return (item - 2);
+                    } else {
+                        return item;
+                    }
+                })
+            } else {
+                array = array.map(item => {
+                    if (isOdd(item)) {
+                        return item + 2;
+                    } else {
+                        return item;
+                    }
+                })
+            }
         }
+        
+        
 
-        return count;
+        return array;
     }
     // 
 
     button.addEventListener('click', () => {
-        if (!int1.value || !int2.value) {
-            result.innerHTML = "Введите обе границы!"
+        if (!input.value || !int.value) {
+            result.innerHTML = "Заполните поля!"
             return;
         }
         
-        result.innerHTML = countPolindroms(int1.value, int2.value);
+        result.innerHTML = refactorArray(input.value, int.value);
     })
 })

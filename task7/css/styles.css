@@ -35,9 +35,8 @@ body {
     font-size: 1.8rem;
 }
 
-.input-group {
-    width: 60%;
-    margin: 0 auto;
+.note {
+    font-size: 1.5rem;
 }
 
 .num-input {
