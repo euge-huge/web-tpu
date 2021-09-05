@@ -15,35 +15,26 @@
         <div class="card-body">
             <h1 class="header">Лабораторная работа №4</h1>
 
-            <p class='description'>Создайте функцию, которая принимает две строки (p1 и p2 - представляют игроков 1 и 2) в качестве аргументов и возвращает строку с указанием победителя в игре «камень, ножницы, бумага». Каждый аргумент будет содержать одну строку: «Камень», «Бумага» или «Ножницы».</p>
+            <h4 class="text-center">Вариант: №13</h4>
+
+            <p class='description'>Напишите функцию, которая принимает строку и вычисляет количество букв и цифр в ней. Вернуть результат как объект.</p>
     
-            <div class="input-group game-input-group mb-3">
-                <span class="input-group-text game-input" >Первый игрок</span>
-                <select id="p1" class="form-select game-input">
-                    <option selected value="">Выберите ход</option>
-                    <option value="stone">Камень</option>
-                    <option value="scissors">Ножницы</option>
-                    <option value="paper">Бумага</option>
-                </select>
-            </div>
-            
-
-            <div class="input-group game-input-group mb-3">
-                <span class="input-group-text game-input" >Второй игрок</span>
-                <select id="p2" class="form-select game-input">
-                    <option selected value="">Выберите ход</option>
-                    <option value="stone">Камень</option>
-                    <option value="scissors">Ножницы</option>
-                    <option value="paper">Бумага</option>
-                </select>
+            <div class="input-group">
+                <input id='input' class="form-control string-input" type="text" placeholder="Введите строку..."/>
+        
+                <button id='btn' class="btn btn-primary button">вычислить</button>
             </div>
 
-            <button id="btn" class="btn btn-primary button" type="button">играть</button>
             
 
             <div class="result-group">
-                <span class="me-3">Победитель: </span>
-                <span id='result' class="result">-</span>
+                <span class="me-3">Букв: </span>
+                <span id='letters-result' class="result">-</span>
+            </div>
+
+            <div class="result-group">
+                <span class="me-3">Цифр: </span>
+                <span id='decimal-result' class="result">-</span>
             </div>
         </div>        
     </div>

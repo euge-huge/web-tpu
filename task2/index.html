@@ -15,18 +15,20 @@
         <div class="card-body">
             <h1 class="header">Лабораторная работа №2</h1>
 
-            <p class='description'>Создайте функцию, которая возвращает количество истинных значений в массиве.</p>
+            <h4 class="text-center">Вариант: №15</h4>
+
+            <p class='description'>Подсчитайте общее количество массивов внутри данного массива.</p>
     
-            <p class='note'> <strong>Замечение:</strong> ввод мсассива осуществлять через пробел. Истинными значениями принять "1", все остальные значения - ложны. <mark>Например: "1 0 1 1 1 0"</mark></mark></p>
+            <p class='note'> <strong>Замечение:</strong> разделитель между массивами принять ";", а между элементами массива ",".<mark>Например: 1;2,3,4;5;6;7,8,9 (2 массива внутри).</mark></mark></p>
 
             <div class="input-group">
-                <input id='input' class="form-control string-input" type="text" placeholder="Введите массив через пробел..."/>
+                <input id='input' class="form-control string-input" type="text" placeholder="Введите массив..."/>
         
                 <button id='btn' class="btn btn-primary button">тест</button>
             </div>
 
             <div class="result-group">
-                <span>Количество истинных значений: </span>
+                <span>Количество массивов внутри данного: </span>
                 <span id='result' class="result true ms-3">-</span>
             </div>
         </div>        

@@ -35,18 +35,12 @@ body {
     font-size: 1.8rem;
 }
 
-.game-input-group {
-    margin: 0 auto;
-    width: 60%;
-}
-
-.game-input {
-    font-size: 1.8rem;
+.string-input {
+    font-size: 2rem;
 }
 
 .button {
     display: block;
-    width: 60%;
     margin: 0 auto;
     font-size: 1.8rem;
     padding: 7px 20px;
@@ -69,11 +63,6 @@ body {
     background-color: #343a40;
     transition: background-color .4s ease-in;
 
-}
-
-.win {
-    background-color: #198754;
-    transition: all .4s ease-in;
 }
 
 

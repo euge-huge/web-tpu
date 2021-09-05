@@ -5,15 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const result = document.getElementById('result');
 
     // АЛГОРИТМ
-    const countTrue = (values) => {
+    const countArrays = (values) => {
         let count = 0;
 
-        values.map(value => {
-            if (value === '1') {
+        let arrays = values.split(';').map(a => a.split(','));
+
+        arrays.map(array => {
+            if (array.length > 1) {
                 count++;
             }
             
-            return value;
+            return array;
         })
 
         return count;
@@ -21,8 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 
 
     button.addEventListener('click', () => {
-        const values = input.value.split(' ');
+        if (!input.value) {
+            result.innerHTML = "Введите массив!"
+            return;
+        }
 
-        result.innerHTML = countTrue(values);
+        result.innerHTML = countArrays(input.value);
     })
 })
