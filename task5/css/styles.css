@@ -35,7 +35,12 @@ body {
     font-size: 1.8rem;
 }
 
-.num-input {
+.note {
+    font-size: 1.5rem;
+
+}
+
+.string-input {
     font-size: 1.8rem;
 }
 
@@ -63,6 +68,18 @@ body {
     background-color: #343a40;
     transition: background-color .4s ease-in;
 
+}
+
+.true {
+    background-color: #198754;
+    color: #eee;
+    transition: all .4s ease-in;
+}
+
+.false {
+    background-color: #dc3545;
+    color: #eee;
+    transition: all .4s ease-in;
 }
 
 
