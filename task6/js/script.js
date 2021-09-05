@@ -1,33 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const int = document.getElementById('int');
+    const input = document.getElementById('input');
 
     const button = document.getElementById('btn');
 
     const result = document.getElementById('result');
 
     // АЛГОРИТМ 
-    const average = (value) => {
-        value = Math.abs(value);
+    const countPairs = (string) => {
+        let count = 0;
 
-        let sum = 0;
-        let d = 0;
+        const array = string.split(",");
 
-        while (value > 0) {
-            sum = sum + (value % 10);
-            value = Math.floor(value/10);
-            d++;
+        var result = {};
+        array.forEach(key => {
+            if (result[key.trim()] != undefined)
+                ++result[key.trim()];
+            else
+                result[key.trim()] = 1;
+        });
+
+        for (let key in result) {
+            count = count + Math.floor(result[key]/2);
         }
 
-        return sum/d;
+        return count ? count : 'пар не найдено!';
     }
     // 
 
     button.addEventListener('click', () => {
-        if (!int.value || int.value == 0) {
-            result.innerHTML = "Введите число!"
+        if (!input.value) {
+            result.innerHTML = "Введите массив!"
             return;
         }
         
-        result.innerHTML = average(int.value);
+        result.innerHTML = countPairs(input.value);
     })
 })
