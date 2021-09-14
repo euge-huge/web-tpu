@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // АЛГОРИТМ
     const countChars = (string) => {
+        if (typeof string !== 'string') {
+            throw new Error("Введена не строка!");
+        }
+
         let lettersCount = 0;
         let decimalCount = 0;
 

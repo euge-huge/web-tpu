@@ -7,16 +7,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Позволяет произвести рассчет из строки
     const calculateString = (str) => {
-        return (new Function('return ' + str))();
+        // Владицация вхождения строки
+        if (typeof str !== 'string') {
+            throw new Error("Введена не строка!");
+        }
+
+        // Если введено выражение с буквами, то будет выкинута ошибка
+        try {
+            return (new Function('return ' + str))();
+        } catch {
+            throw new Error("Некорректное выражение!")
+        }
     }
 
     // АЛГОРИТМ
     const findZeroDivider = (string) => {
+        // Владицация вхождения строки
+        if (typeof string !== 'string') {
+            throw new Error("Введена не строка!");
+        }
 
-        const exprs = string.split('/');
+        let result = null;
 
-        for (let i = 0; i < exprs.length; i++) {
-            if (calculateString(exprs[i]) === 0) return true;
+        // Проверка, что выражение вычислилось, если нет, то ошибку обрабатываем на уровне выше
+        try {
+            result = calculateString(string);
+        } catch (e) {
+            throw e;
+        }
+
+        // Проверяем значение на конечность, если было деление на ноль, то число бесконечно или NaN
+        if(!isFinite(result)) {
+            return true;
         }
 
         return false
@@ -24,15 +46,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // 
 
     button.addEventListener('click', () => {
+        // Проверка на пустое значение
        if (!input.value) {
-           result.innerHTML = "Введите выражение!"
-           result.classList.remove('true');
+            result.innerHTML = "Введите выражение!"
+            result.classList.remove('true');
             result.classList.remove('false');
-           return;
+            return;
        }
 
-       console.log(findZeroDivider(input.value))
-       if (findZeroDivider(input.value)) {
+       let isZero = null;
+
+    //    Обрабатываем ошибку, если невозможно вычислить выражение
+       try {
+        isZero = findZeroDivider(input.value)
+       } catch (e) {
+            result.innerHTML = e.message;
+            result.classList.remove('true');
+            result.classList.remove('false');
+            return;
+       }
+
+    //    Выводим результат
+       if (isZero) {
             result.innerHTML = "Обнаружено деление на ноль!"
             result.classList.remove('true');
             result.classList.add('false');

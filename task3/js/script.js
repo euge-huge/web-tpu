@@ -6,7 +6,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // АЛГОРИТМ
     const countDeep = (arrayStr) => {
-        return arrayStr.split('[').length - 1;
+        if (typeof arrayStr !== 'string') {
+            throw new Error("Введена не строка!");
+        }
+
+        const chars = arrayStr.split("");
+
+        // Проверка на лишние символы
+        for (let i = 0; i < chars.length; i++) {
+            if (chars[i] !== '[' && chars[i] !== ']') return "Лишние символы в строке!"
+        }
+
+        const left = arrayStr.split('[');
+        const right = arrayStr.split(']');
+
+        // Проверка, что справа и слева одинаковая глубина массива
+        if (right.length === left.length)
+            return left.length - 1;
+        else
+            return "Невозможно измерить глубину!"
     }
     // 
 

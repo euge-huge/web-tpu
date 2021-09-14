@@ -1,35 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const int1 = document.getElementById('int1');
-    const int2 = document.getElementById('int2');
+    const input = document.getElementById('input');
 
     const button = document.getElementById('btn');
 
     const result = document.getElementById('result');
 
-    // ПОДПРОГРАММА
-    const isPolindrom = (number) => {
-        return number === Number(number.toString().split('').reverse().join(''));
-    }
-    // 
-
     // АЛГОРИТМ 
-    const countPolindroms = (v1, v2) => {
-        let count = 0;
-
-        for (let num = Number(v1); num <= v2; num++) {
-            if (isPolindrom(num)) count++;
+    const indexesOfLetters = (string) => {
+        // Проверка, что аргумент строка
+        if (typeof string !== 'string') {
+            throw new Error("Введена не строка!");
         }
 
-        return count;
+        const charArray = string.split("");
+
+        // Сюда сохраняем индексы заглавных букв
+        let indexes = [];
+
+        // Проходимся по каждому символу, проверяем, что это вообще буква, проверяем, что она заглавная и сохраняем
+        charArray.map((char, index) => {
+            if (char.toLowerCase() !== char.toUpperCase() && char === char.toUpperCase()) {
+                indexes.push(index);
+            }
+        })
+
+        // Сортировка индексов по возрастанию (форматирование) (на всякий случай)
+        indexes = indexes.sort((a, b) => a - b);
+
+        return indexes.length ? indexes : "заглавных букв не найдено!";
     }
     // 
 
     button.addEventListener('click', () => {
-        if (!int1.value || !int2.value) {
-            result.innerHTML = "Введите обе границы!"
+        if (!input.value) {
+            result.innerHTML = "Введите строку!"
             return;
         }
         
-        result.innerHTML = countPolindroms(int1.value, int2.value);
+        // Обработка ошибок
+        try {
+            result.innerHTML = indexesOfLetters(input.value);
+        } catch (e) {
+            result.innerHTML = e.message;
+        }
     })
 })

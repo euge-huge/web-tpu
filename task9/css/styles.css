@@ -35,25 +35,14 @@ body {
     font-size: 1.8rem;
 }
 
-.note {
-    font-size: 1.5rem;
-
-}
-
-.input-group {
-    margin: 0 auto;
-    width: 90%;
-    display: flex;
-    justify-content: space-around;
-}
-
 .string-input {
-    font-size: 2rem;
-    
+    font-size: 1.8rem;
 }
 
 .button {
-    font-size: 1.5rem;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.8rem;
     padding: 7px 20px;
     text-transform: uppercase;
 }
@@ -68,9 +57,10 @@ body {
 }
 
 .result {
-    padding: 5px 8px;
+    padding: 5px;
     border-radius: 2px;
-    background-color: transparent;
+    color: #eee;
+    background-color: #343a40;
     transition: background-color .4s ease-in;
 
 }
@@ -80,3 +70,12 @@ body {
     color: #eee;
     transition: all .4s ease-in;
 }
+
+.false {
+    background-color: #dc3545;
+    color: #eee;
+    transition: all .4s ease-in;
+}
+
+
+

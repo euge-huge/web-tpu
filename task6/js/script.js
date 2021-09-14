@@ -8,11 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // АЛГОРИТМ 
     const countPairs = (string) => {
         let count = 0;
-
-        const array = string.split(",");
+        
+        let array = null;
+        
+        // ВАЛИДАЦИЯ: проверка на строку, только у строки есть метод split, при неверном формате строки будет не найдено пар, что тоже укладывается в логику
+        try {
+            array = string.split(",");
+        } catch {
+            throw new Error("Введена не строка!");
+        }
+        
 
         var result = {};
         array.forEach(key => {
+            // Обрабатываем ошибку, если элементы массива не числа
+            if (!Number.isInteger(Number(key.trim()))) throw new Error("Ошибка! Все элементы должны быть целочислены!")
+
             if (result[key.trim()] != undefined)
                 ++result[key.trim()];
             else
@@ -33,6 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         
-        result.innerHTML = countPairs(input.value);
+        // Обработка ошибки
+        try {
+            result.innerHTML = countPairs(input.value);
+        } catch (e) {
+            result.innerHTML = e.message;
+        }
     })
 })
