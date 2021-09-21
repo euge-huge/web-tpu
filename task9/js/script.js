@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const isAccepted = null;
+        let isAccepted = null;
 
         // Обработка ошибок
         try {
