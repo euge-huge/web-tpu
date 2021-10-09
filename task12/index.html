@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ЛБ 12</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-body">
+        <h1 class="header">Лабораторная работа №12</h1>
+
+        <h4 class="text-center">Вариант: №11</h4>
+
+        <p class="description mt-3 text-center">
+          Напишите программу для записи объекта в JSON-файл
+        </p>
+
+        <div class="input-group">
+          <h3 class="text-center mt-3">Информация о студенте</h3>
+
+          <div
+            id="error"
+            class="alert alert-danger error visually-hidden mt-3"
+          ></div>
+
+          <input
+            id="name"
+            type="text"
+            class="form-control string-input"
+            placeholder="Имя"
+          />
+          <input
+            id="lastName"
+            type="text"
+            class="form-control string-input"
+            placeholder="Фамилия"
+          />
+          <input
+            id="age"
+            type="number"
+            min="0"
+            class="form-control string-input"
+            placeholder="Возраст"
+          />
+        </div>
+
+        <div class="result-group">
+          <a id="btn" class="btn btn-primary button">скачать json файл</a>
+        </div>
+      </div>
+    </div>
+
+    <a id="back" class="btn btn-dark button-back" href="../index.html">назад</a>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
